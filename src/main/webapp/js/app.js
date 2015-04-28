@@ -1,9 +1,11 @@
+// Das wir hier "/socket" verwenden, wird in ChatServlet.java festgelegt.
 var connection = new WebSocket('ws://localhost:8080/socket'),
     $timeline = $('#timeline'),
     $message = $('#message');
 
 /**
- * Wird aufgerufen, wenn der Versuch eine Verbindung zum Server herzustellen (s.o.: "... new WebSocket...") erfolgreich war.
+ * Wird aufgerufen, wenn der Versuch eine Verbindung zum Server herzustellen (s.o.: "... new WebSocket...") erfolgreich
+ * war.
  */
 connection.onopen = function () {
     $timeline.append('<li>[Verbindung hergestellt. Öffne einen zweiten Browser um mit dir selbst zu reden.]</li>')

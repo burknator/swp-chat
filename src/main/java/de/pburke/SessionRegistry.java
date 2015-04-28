@@ -12,10 +12,15 @@ public class SessionRegistry {
         sessions.add(session);
     }
 
+    /**
+     * Nachricht an alle in dieser Registry gespeicherten Verbindungen senden.
+     * @param message String
+     */
     public static void sendMessage(String message) {
-        for (Session s : sessions) {
+        for (Session session : sessions) {
             try {
-                s.getRemote().sendString(message);
+                // Hier wird die Nachricht an die Session geschickt
+                session.getRemote().sendString(message);
             } catch(IOException e) {
                 e.printStackTrace(System.err);
             }
