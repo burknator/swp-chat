@@ -8,13 +8,11 @@ import java.util.ArrayList;
 public class SessionRegistry {
     protected static ArrayList<Session> sessions = new ArrayList<Session>();
 
-    public static void addSession(Session session)
-    {
+    public static void addSession(Session session) {
         sessions.add(session);
     }
 
-    public static void sendMessage(String message)
-    {
+    public static void sendMessage(String message) {
         for (Session s : sessions) {
             try {
                 s.getRemote().sendString(message);

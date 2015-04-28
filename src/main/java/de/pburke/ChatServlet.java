@@ -5,12 +5,12 @@ import org.eclipse.jetty.websocket.servlet.WebSocketServletFactory;
 
 import javax.servlet.annotation.WebServlet;
 
-@WebServlet(name = "EchoServlet", urlPatterns = {"/echo"})
-public class EchoServlet extends WebSocketServlet {
+@WebServlet(name = "ChatServlet", urlPatterns = {"/socket"})
+public class ChatServlet extends WebSocketServlet {
     
     @Override
     public void configure(WebSocketServletFactory factory) {
         factory.getPolicy().setIdleTimeout(10000);
-        factory.register(TestListener.class);
+        factory.register(ChatListener.class);
     }
 }

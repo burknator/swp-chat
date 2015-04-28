@@ -3,7 +3,7 @@ package de.pburke;
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.WebSocketAdapter;
 
-public class TestListener extends WebSocketAdapter {
+public class ChatListener extends WebSocketAdapter {
 
     @Override
     public void onWebSocketConnect(Session session) {
@@ -14,13 +14,8 @@ public class TestListener extends WebSocketAdapter {
 
     @Override
     public void onWebSocketText(String s) {
-        if (!isConnected()) return;
+        if (!isConnected() || s.equals("---ping")) return;
 
-        if (s.equals("---ping")) {
-            //System.out.println("Received ping.");
-        } else {
-            //System.out.printf("Echoing back message [%s]%n", s);
-            SessionRegistry.sendMessage(s);
-        }
+        SessionRegistry.sendMessage(s);
     }
 }
