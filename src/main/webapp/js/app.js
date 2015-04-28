@@ -8,19 +8,19 @@ var connection = new WebSocket('ws://localhost:8080/socket'),
  * war.
  */
 connection.onopen = function () {
-    $timeline.append('<li>[Verbindung hergestellt. Öffne einen zweiten Browser um mit dir selbst zu reden.]</li>')
+    $timeline.append('<li class="system-message">[Verbindung hergestellt. Öffne einen zweiten Browser um mit dir selbst zu reden.]</li>')
 };
 
 /**
  * Tritt ein Fehler beim Verbinden mit dem Server oder danach auf, wird diese Funktion aufgerufen.
  */
 connection.onerror = function () {
-    $timeline.append('<li>[Es ist ein Fehler aufgetreten. Lade die Seite, falls das nicht hilft starte den Server neu und probiere es erneut.]</li>')
+    $timeline.append('<li class="system-message">[Es ist ein Fehler aufgetreten. Lade die Seite, falls das nicht hilft starte den Server neu und probiere es erneut.]</li>')
 };
 
 /**
  * Wird ausgeführt wenn der Browser eine Nachricht vom Server bekommt. Die gesendeten Daten (e.data) werden als
- * Listenelement in die Liste in index.jsp eingetragen.
+ * Listenelement in die Liste in index.html eingetragen.
  * @param e
  */
 connection.onmessage = function (e) {
@@ -37,7 +37,7 @@ setInterval(function() {
 }, 2000);
 
 /**
- * Bei einem Klick auf den Senden Button (id="send" in index.jsp) wird die Nachricht aus dem Testfeld an den Server
+ * Bei einem Klick auf den Senden Button (id="send" in index.html) wird die Nachricht aus dem Testfeld an den Server
  * gesendet und anschließend das Textfeld geleert.
  */
 $('#send').on('click', function(e) {
