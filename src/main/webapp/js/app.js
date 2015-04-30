@@ -1,5 +1,5 @@
 // Das wir hier "/socket" verwenden, wird in ChatServlet.java festgelegt.
-var connection = new WebSocket('ws://localhost:8080/socket'),
+var connection = new WebSocket('ws://' + window.location.host + '/socket'),
     $timeline = $('#timeline'),
     $message = $('#message');
 
