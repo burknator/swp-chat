@@ -1,5 +1,5 @@
 // Das wir hier "/socket" verwenden, wird in ChatServlet.java festgelegt.
-var connection = new WebSocket('ws://' + window.location.href.replace(/http/, 'ws').replace(/\/$/, '') + '/socket'),
+var connection = new WebSocket(window.location.href.replace(/http/, 'ws').replace(/\/$/, '') + '/socket'),
     $timeline = $('#timeline'),
     $message = $('#message');
 
